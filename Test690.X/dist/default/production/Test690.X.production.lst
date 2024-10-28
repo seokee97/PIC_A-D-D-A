@@ -1,0 +1,1706 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Fri Oct 25 15:30:23 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	16F690
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	cstackBANK1,global,class=BANK1,space=1,delta=1,noexec
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2
+    12                           	psect	text3,local,class=CODE,merge=1,delta=2
+    13                           	psect	text4,local,class=CODE,merge=1,delta=2
+    14                           	psect	text5,local,class=CODE,merge=1,delta=2
+    15                           	psect	text6,local,class=CODE,merge=1,delta=2
+    16                           	psect	text7,local,class=CODE,merge=1,delta=2
+    17                           	psect	text8,local,class=CODE,merge=1,delta=2
+    18                           	psect	text9,local,class=CODE,merge=1,delta=2
+    19                           	psect	text10,local,class=CODE,merge=1,delta=2
+    20                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    21                           	dabs	1,0x7E,2
+    22     0000                     
+    23                           ; Generated 12/10/2023 GMT
+    24                           ; 
+    25                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
+    27                           ; 
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution. Publication is not required when
+    39                           ;        this file is used in an embedded application.
+    40                           ; 
+    41                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    42                           ;        software without specific prior written permission.
+    43                           ; 
+    44                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    45                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    46                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    47                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    48                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    49                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    50                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    51                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    52                           ; 
+    53                           ; 
+    54                           ; Code-generator required, PIC16F690 Definitions
+    55                           ; 
+    56                           ; SFR Addresses
+    57     0000                     	;# 
+    58     0001                     	;# 
+    59     0002                     	;# 
+    60     0003                     	;# 
+    61     0004                     	;# 
+    62     0005                     	;# 
+    63     0006                     	;# 
+    64     0007                     	;# 
+    65     000A                     	;# 
+    66     000B                     	;# 
+    67     000C                     	;# 
+    68     000D                     	;# 
+    69     000E                     	;# 
+    70     000E                     	;# 
+    71     000F                     	;# 
+    72     0010                     	;# 
+    73     0011                     	;# 
+    74     0012                     	;# 
+    75     0013                     	;# 
+    76     0014                     	;# 
+    77     0015                     	;# 
+    78     0015                     	;# 
+    79     0016                     	;# 
+    80     0017                     	;# 
+    81     0018                     	;# 
+    82     0019                     	;# 
+    83     001A                     	;# 
+    84     001C                     	;# 
+    85     001D                     	;# 
+    86     001E                     	;# 
+    87     001F                     	;# 
+    88     0081                     	;# 
+    89     0085                     	;# 
+    90     0086                     	;# 
+    91     0087                     	;# 
+    92     008C                     	;# 
+    93     008D                     	;# 
+    94     008E                     	;# 
+    95     008F                     	;# 
+    96     0090                     	;# 
+    97     0092                     	;# 
+    98     0093                     	;# 
+    99     0093                     	;# 
+   100     0093                     	;# 
+   101     0094                     	;# 
+   102     0095                     	;# 
+   103     0095                     	;# 
+   104     0096                     	;# 
+   105     0096                     	;# 
+   106     0097                     	;# 
+   107     0098                     	;# 
+   108     0099                     	;# 
+   109     009A                     	;# 
+   110     009B                     	;# 
+   111     009E                     	;# 
+   112     009F                     	;# 
+   113     010C                     	;# 
+   114     010C                     	;# 
+   115     010D                     	;# 
+   116     010E                     	;# 
+   117     010F                     	;# 
+   118     0115                     	;# 
+   119     0116                     	;# 
+   120     0118                     	;# 
+   121     0119                     	;# 
+   122     011A                     	;# 
+   123     011B                     	;# 
+   124     011E                     	;# 
+   125     011F                     	;# 
+   126     018C                     	;# 
+   127     018D                     	;# 
+   128     019D                     	;# 
+   129     019E                     	;# 
+   130     0000                     	;# 
+   131     0001                     	;# 
+   132     0002                     	;# 
+   133     0003                     	;# 
+   134     0004                     	;# 
+   135     0005                     	;# 
+   136     0006                     	;# 
+   137     0007                     	;# 
+   138     000A                     	;# 
+   139     000B                     	;# 
+   140     000C                     	;# 
+   141     000D                     	;# 
+   142     000E                     	;# 
+   143     000E                     	;# 
+   144     000F                     	;# 
+   145     0010                     	;# 
+   146     0011                     	;# 
+   147     0012                     	;# 
+   148     0013                     	;# 
+   149     0014                     	;# 
+   150     0015                     	;# 
+   151     0015                     	;# 
+   152     0016                     	;# 
+   153     0017                     	;# 
+   154     0018                     	;# 
+   155     0019                     	;# 
+   156     001A                     	;# 
+   157     001C                     	;# 
+   158     001D                     	;# 
+   159     001E                     	;# 
+   160     001F                     	;# 
+   161     0081                     	;# 
+   162     0085                     	;# 
+   163     0086                     	;# 
+   164     0087                     	;# 
+   165     008C                     	;# 
+   166     008D                     	;# 
+   167     008E                     	;# 
+   168     008F                     	;# 
+   169     0090                     	;# 
+   170     0092                     	;# 
+   171     0093                     	;# 
+   172     0093                     	;# 
+   173     0093                     	;# 
+   174     0094                     	;# 
+   175     0095                     	;# 
+   176     0095                     	;# 
+   177     0096                     	;# 
+   178     0096                     	;# 
+   179     0097                     	;# 
+   180     0098                     	;# 
+   181     0099                     	;# 
+   182     009A                     	;# 
+   183     009B                     	;# 
+   184     009E                     	;# 
+   185     009F                     	;# 
+   186     010C                     	;# 
+   187     010C                     	;# 
+   188     010D                     	;# 
+   189     010E                     	;# 
+   190     010F                     	;# 
+   191     0115                     	;# 
+   192     0116                     	;# 
+   193     0118                     	;# 
+   194     0119                     	;# 
+   195     011A                     	;# 
+   196     011B                     	;# 
+   197     011E                     	;# 
+   198     011F                     	;# 
+   199     018C                     	;# 
+   200     018D                     	;# 
+   201     019D                     	;# 
+   202     019E                     	;# 
+   203     0007                     _PORTCbits	set	7
+   204     0013                     _SSPBUF	set	19
+   205     0014                     _SSPCON	set	20
+   206     001E                     _ADRESH	set	30
+   207     001F                     _ADCON0bits	set	31
+   208     0094                     _SSPSTATbits	set	148
+   209     0094                     _SSPSTAT	set	148
+   210     0087                     _TRISCbits	set	135
+   211     0086                     _TRISBbits	set	134
+   212     009E                     _ADRESL	set	158
+   213     009F                     _ADCON1bits	set	159
+   214     0085                     _TRISAbits	set	133
+   215     011E                     _ANSELbits	set	286
+   216     011F                     _ANSELH	set	287
+   217     011E                     _ANSEL	set	286
+   218                           
+   219                           	psect	cinit
+   220     07F7                     start_initialization:	
+   221                           ; #config settings
+   222                           
+   223     07F7                     __initialization:
+   224                           
+   225                           ; Clear objects allocated to BANK0
+   226     07F7  1283               	bcf	3,5	;RP0=0, select bank0
+   227     07F8  1303               	bcf	3,6	;RP1=0, select bank0
+   228     07F9  01AB               	clrf	__pbssBANK0& (0+127)
+   229     07FA  01AC               	clrf	(__pbssBANK0+1)& (0+127)
+   230     07FB  01AD               	clrf	(__pbssBANK0+2)& (0+127)
+   231     07FC  01AE               	clrf	(__pbssBANK0+3)& (0+127)
+   232     07FD                     end_of_initialization:	
+   233                           ;End of C runtime variable initialization code
+   234                           
+   235     07FD                     __end_of__initialization:
+   236     07FD  0183               	clrf	3
+   237     07FE  118A  2F35         	ljmp	_main	;jump to C main() function
+   238                           
+   239                           	psect	bssBANK0
+   240     002B                     __pbssBANK0:
+   241     002B                     dequeue@F1643:
+   242     002B                     	ds	4
+   243                           
+   244                           	psect	cstackBANK1
+   245     00A0                     __pcstackBANK1:
+   246     00A0                     main@adcValue:
+   247                           
+   248                           ; 4 bytes @ 0x0
+   249     00A0                     	ds	4
+   250     00A4                     main@data:
+   251                           
+   252                           ; 4 bytes @ 0x4
+   253     00A4                     	ds	4
+   254     00A8                     main@adcQueue:
+   255                           
+   256                           ; 70 bytes @ 0x8
+   257     00A8                     	ds	70
+   258                           
+   259                           	psect	cstackCOMMON
+   260     0070                     __pcstackCOMMON:
+   261     0070                     ?_initQueue:
+   262     0070                     ??_initQueue:	
+   263                           ; 1 bytes @ 0x0
+   264                           
+   265     0070                     ?_ADC_Init:	
+   266                           ; 1 bytes @ 0x0
+   267                           
+   268     0070                     ??_ADC_Init:	
+   269                           ; 1 bytes @ 0x0
+   270                           
+   271     0070                     ?_SPI_Init:	
+   272                           ; 1 bytes @ 0x0
+   273                           
+   274     0070                     ??_SPI_Init:	
+   275                           ; 1 bytes @ 0x0
+   276                           
+   277     0070                     ?_SPI_Write:	
+   278                           ; 1 bytes @ 0x0
+   279                           
+   280     0070                     ??_SPI_Write:	
+   281                           ; 1 bytes @ 0x0
+   282                           
+   283     0070                     ?_main:	
+   284                           ; 1 bytes @ 0x0
+   285                           
+   286     0070                     ?_isQueueFull:	
+   287                           ; 1 bytes @ 0x0
+   288                           
+   289     0070                     ?_isQueueEmpty:	
+   290                           ; 2 bytes @ 0x0
+   291                           
+   292     0070                     ?_ADC_Read:	
+   293                           ; 2 bytes @ 0x0
+   294                           
+   295     0070                     initQueue@q:	
+   296                           ; 4 bytes @ 0x0
+   297                           
+   298     0070                     SPI_Write@data:	
+   299                           ; 1 bytes @ 0x0
+   300                           
+   301                           
+   302                           ; 1 bytes @ 0x0
+   303     0070                     	ds	1
+   304     0071                     ?_MCP4921_SetOutput:
+   305     0071                     MCP4921_SetOutput@data:	
+   306                           ; 1 bytes @ 0x1
+   307                           
+   308                           
+   309                           ; 4 bytes @ 0x1
+   310     0071                     	ds	1
+   311     0072                     ??_isQueueFull:
+   312     0072                     ??_isQueueEmpty:	
+   313                           ; 1 bytes @ 0x2
+   314                           
+   315                           
+   316                           ; 1 bytes @ 0x2
+   317     0072                     	ds	2
+   318     0074                     ??_ADC_Read:
+   319                           
+   320                           ; 1 bytes @ 0x4
+   321     0074                     	ds	1
+   322     0075                     ??_MCP4921_SetOutput:
+   323     0075                     MCP4921_SetOutput@highByte:	
+   324                           ; 1 bytes @ 0x5
+   325                           
+   326                           
+   327                           ; 1 bytes @ 0x5
+   328     0075                     	ds	1
+   329     0076                     isQueueFull@q:
+   330     0076                     isQueueEmpty@q:	
+   331                           ; 1 bytes @ 0x6
+   332                           
+   333     0076                     MCP4921_SetOutput@lowByte:	
+   334                           ; 1 bytes @ 0x6
+   335                           
+   336     0076                     ADC_Read@result:	
+   337                           ; 1 bytes @ 0x6
+   338                           
+   339                           
+   340                           ; 4 bytes @ 0x6
+   341     0076                     	ds	1
+   342     0077                     ?_enqueue:
+   343     0077                     ?_dequeue:	
+   344                           ; 1 bytes @ 0x7
+   345                           
+   346     0077                     enqueue@data:	
+   347                           ; 4 bytes @ 0x7
+   348                           
+   349                           
+   350                           ; 4 bytes @ 0x7
+   351     0077                     	ds	4
+   352     007B                     enqueue@q:
+   353                           
+   354                           ; 1 bytes @ 0xB
+   355     007B                     	ds	1
+   356     007C                     ??_main:
+   357                           
+   358                           	psect	cstackBANK0
+   359     0020                     __pcstackBANK0:	
+   360                           ; 1 bytes @ 0xC
+   361                           
+   362     0020                     ??_enqueue:
+   363     0020                     ??_dequeue:	
+   364                           ; 1 bytes @ 0x0
+   365                           
+   366                           
+   367                           ; 1 bytes @ 0x0
+   368     0020                     	ds	6
+   369     0026                     dequeue@data:
+   370                           
+   371                           ; 4 bytes @ 0x6
+   372     0026                     	ds	4
+   373     002A                     dequeue@q:
+   374                           
+   375                           ; 1 bytes @ 0xA
+   376     002A                     	ds	1
+   377                           
+   378                           	psect	maintext
+   379     0735                     __pmaintext:	
+   380 ;;
+   381 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   382 ;;
+   383 ;; *************** function _main *****************
+   384 ;; Defined at:
+   385 ;;		line 268 in file "newmain.c"
+   386 ;; Parameters:    Size  Location     Type
+   387 ;;		None
+   388 ;; Auto vars:     Size  Location     Type
+   389 ;;  data            4    4[BANK1 ] struct .
+   390 ;;  adcValue        4    0[BANK1 ] struct .
+   391 ;;  adcQueue       70    8[BANK1 ] struct .
+   392 ;; Return value:  Size  Location     Type
+   393 ;;                  1    wreg      void 
+   394 ;; Registers used:
+   395 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   396 ;; Tracked objects:
+   397 ;;		On entry : B00/0
+   398 ;;		On exit  : 0/0
+   399 ;;		Unchanged: 0/0
+   400 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   401 ;;      Params:         0       0       0       0
+   402 ;;      Locals:         0       0      78       0
+   403 ;;      Temps:          0       0       0       0
+   404 ;;      Totals:         0       0      78       0
+   405 ;;Total ram usage:       78 bytes
+   406 ;; Hardware stack levels required when called: 2
+   407 ;; This function calls:
+   408 ;;		_ADC_Init
+   409 ;;		_ADC_Read
+   410 ;;		_MCP4921_SetOutput
+   411 ;;		_SPI_Init
+   412 ;;		_dequeue
+   413 ;;		_enqueue
+   414 ;;		_initQueue
+   415 ;;		_isQueueEmpty
+   416 ;;		_isQueueFull
+   417 ;; This function is called by:
+   418 ;;		Startup code after reset
+   419 ;; This function uses a non-reentrant model
+   420 ;;
+   421                           
+   422     0735                     _main:	
+   423                           ;psect for function _main
+   424                           
+   425     0735                     l784:	
+   426                           ;incstack = 0
+   427                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   428                           
+   429                           
+   430                           ;newmain.c: 269:     ADC_Init();
+   431     0735  118A  26A8  118A   	fcall	_ADC_Init
+   432                           
+   433                           ;newmain.c: 270:     SPI_Init();
+   434     0738  118A  263B  118A   	fcall	_SPI_Init
+   435     073B                     l786:
+   436                           
+   437                           ;newmain.c: 272:     CircularQueue adcQueue;;newmain.c: 273:     initQueue(&adcQueue);
+   438     073B  30A8               	movlw	(low (main@adcQueue| 0))& (0+255)
+   439     073C  118A  2660  118A   	fcall	_initQueue
+   440     073F                     l788:
+   441                           
+   442                           ;newmain.c: 275:     PORTCbits.RC6 = 1;
+   443     073F  1283               	bcf	3,5	;RP0=0, select bank0
+   444     0740  1303               	bcf	3,6	;RP1=0, select bank0
+   445     0741  1707               	bsf	7,6	;volatile
+   446     0742                     l790:
+   447                           
+   448                           ;newmain.c: 276:     PORTCbits.RC3 = 1;
+   449     0742  1587               	bsf	7,3	;volatile
+   450     0743                     l792:
+   451                           
+   452                           ;newmain.c: 280:         if (!isQueueFull(&adcQueue)) {
+   453     0743  30A8               	movlw	(low (main@adcQueue| 0))& (0+255)
+   454     0744  118A  268E  118A   	fcall	_isQueueFull
+   455     0747  0870               	movf	?_isQueueFull,w
+   456     0748  0471               	iorwf	?_isQueueFull+1,w
+   457     0749  1D03               	btfss	3,2
+   458     074A  2F4C               	goto	u231
+   459     074B  2F4D               	goto	u230
+   460     074C                     u231:
+   461     074C  2F66               	goto	l798
+   462     074D                     u230:
+   463     074D                     l794:
+   464                           
+   465                           ;newmain.c: 281:             adcData adcValue = ADC_Read();
+   466     074D  118A  26C4  118A   	fcall	_ADC_Read
+   467     0750  0873               	movf	?_ADC_Read+3,w
+   468     0751  1683               	bsf	3,5	;RP0=1, select bank1
+   469     0752  1303               	bcf	3,6	;RP1=0, select bank1
+   470     0753  00A3               	movwf	(main@adcValue+3)^(0+128)
+   471     0754  0872               	movf	?_ADC_Read+2,w
+   472     0755  00A2               	movwf	(main@adcValue+2)^(0+128)
+   473     0756  0871               	movf	?_ADC_Read+1,w
+   474     0757  00A1               	movwf	(main@adcValue+1)^(0+128)
+   475     0758  0870               	movf	?_ADC_Read,w
+   476     0759  00A0               	movwf	main@adcValue^(0+128)
+   477     075A                     l796:
+   478                           
+   479                           ;newmain.c: 282:             enqueue(&adcQueue, adcValue);
+   480     075A  0823               	movf	(main@adcValue+3)^(0+128),w
+   481     075B  00FA               	movwf	enqueue@data+3
+   482     075C  0822               	movf	(main@adcValue+2)^(0+128),w
+   483     075D  00F9               	movwf	enqueue@data+2
+   484     075E  0821               	movf	(main@adcValue+1)^(0+128),w
+   485     075F  00F8               	movwf	enqueue@data+1
+   486     0760  0820               	movf	main@adcValue^(0+128),w
+   487     0761  00F7               	movwf	enqueue@data
+   488     0762  30A8               	movlw	(low (main@adcQueue| 0))& (0+255)
+   489     0763  118A  26E4  118A   	fcall	_enqueue
+   490     0766                     l798:
+   491                           
+   492                           ;newmain.c: 286:         if (!isQueueEmpty(&adcQueue)) {
+   493     0766  30A8               	movlw	(low (main@adcQueue| 0))& (0+255)
+   494     0767  118A  2675  118A   	fcall	_isQueueEmpty
+   495     076A  0870               	movf	?_isQueueEmpty,w
+   496     076B  0471               	iorwf	?_isQueueEmpty+1,w
+   497     076C  1D03               	btfss	3,2
+   498     076D  2F6F               	goto	u241
+   499     076E  2F70               	goto	u240
+   500     076F                     u241:
+   501     076F  2F43               	goto	l792
+   502     0770                     u240:
+   503     0770                     l800:
+   504                           
+   505                           ;newmain.c: 287:             adcData data = dequeue(&adcQueue);
+   506     0770  30A8               	movlw	(low (main@adcQueue| 0))& (0+255)
+   507     0771  118A  278C  118A   	fcall	_dequeue
+   508     0774  087A               	movf	?_dequeue+3,w
+   509     0775  1683               	bsf	3,5	;RP0=1, select bank1
+   510     0776  1303               	bcf	3,6	;RP1=0, select bank1
+   511     0777  00A7               	movwf	(main@data+3)^(0+128)
+   512     0778  0879               	movf	?_dequeue+2,w
+   513     0779  00A6               	movwf	(main@data+2)^(0+128)
+   514     077A  0878               	movf	?_dequeue+1,w
+   515     077B  00A5               	movwf	(main@data+1)^(0+128)
+   516     077C  0877               	movf	?_dequeue,w
+   517     077D  00A4               	movwf	main@data^(0+128)
+   518     077E                     l802:
+   519                           
+   520                           ;newmain.c: 288:             MCP4921_SetOutput(data);
+   521     077E  0827               	movf	(main@data+3)^(0+128),w
+   522     077F  00F4               	movwf	MCP4921_SetOutput@data+3
+   523     0780  0826               	movf	(main@data+2)^(0+128),w
+   524     0781  00F3               	movwf	MCP4921_SetOutput@data+2
+   525     0782  0825               	movf	(main@data+1)^(0+128),w
+   526     0783  00F2               	movwf	MCP4921_SetOutput@data+1
+   527     0784  0824               	movf	main@data^(0+128),w
+   528     0785  00F1               	movwf	MCP4921_SetOutput@data
+   529     0786  118A  264B  118A   	fcall	_MCP4921_SetOutput
+   530     0789  2F43               	goto	l792
+   531     078A  118A  2800         	ljmp	start
+   532     078C                     __end_of_main:
+   533                           
+   534                           	psect	text1
+   535     0660                     __ptext1:	
+   536 ;; *************** function _initQueue *****************
+   537 ;; Defined at:
+   538 ;;		line 180 in file "newmain.c"
+   539 ;; Parameters:    Size  Location     Type
+   540 ;;  q               1    wreg     PTR struct .
+   541 ;;		 -> main@adcQueue(70), 
+   542 ;; Auto vars:     Size  Location     Type
+   543 ;;  q               1    0[COMMON] PTR struct .
+   544 ;;		 -> main@adcQueue(70), 
+   545 ;; Return value:  Size  Location     Type
+   546 ;;                  1    wreg      void 
+   547 ;; Registers used:
+   548 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   549 ;; Tracked objects:
+   550 ;;		On entry : 0/0
+   551 ;;		On exit  : 0/0
+   552 ;;		Unchanged: 0/0
+   553 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   554 ;;      Params:         0       0       0       0
+   555 ;;      Locals:         1       0       0       0
+   556 ;;      Temps:          0       0       0       0
+   557 ;;      Totals:         1       0       0       0
+   558 ;;Total ram usage:        1 bytes
+   559 ;; Hardware stack levels used: 1
+   560 ;; This function calls:
+   561 ;;		Nothing
+   562 ;; This function is called by:
+   563 ;;		_main
+   564 ;; This function uses a non-reentrant model
+   565 ;;
+   566                           
+   567     0660                     _initQueue:	
+   568                           ;psect for function _initQueue
+   569                           
+   570                           
+   571                           ;incstack = 0
+   572                           ; Regs used in _initQueue: [wreg-fsr0h+status,2+status,0]
+   573                           ;initQueue@q stored from wreg
+   574     0660  00F0               	movwf	initQueue@q
+   575     0661                     l724:
+   576                           
+   577                           ;newmain.c: 181:     q->head = 0;
+   578     0661  0870               	movf	initQueue@q,w
+   579     0662  3E40               	addlw	64
+   580     0663  0084               	movwf	4
+   581     0664  1383               	bcf	3,7	;select IRP bank0
+   582     0665  0180               	clrf	0
+   583     0666  0A84               	incf	4,f
+   584     0667  0180               	clrf	0
+   585                           
+   586                           ;newmain.c: 182:     q->tail = 0;
+   587     0668  0870               	movf	initQueue@q,w
+   588     0669  3E42               	addlw	66
+   589     066A  0084               	movwf	4
+   590     066B  0180               	clrf	0
+   591     066C  0A84               	incf	4,f
+   592     066D  0180               	clrf	0
+   593                           
+   594                           ;newmain.c: 183:     q->count = 0;
+   595     066E  0870               	movf	initQueue@q,w
+   596     066F  3E44               	addlw	68
+   597     0670  0084               	movwf	4
+   598     0671  0180               	clrf	0
+   599     0672  0A84               	incf	4,f
+   600     0673  0180               	clrf	0
+   601     0674                     l33:
+   602     0674  0008               	return
+   603     0675                     __end_of_initQueue:
+   604                           
+   605                           	psect	text2
+   606     06E4                     __ptext2:	
+   607 ;; *************** function _enqueue *****************
+   608 ;; Defined at:
+   609 ;;		line 194 in file "newmain.c"
+   610 ;; Parameters:    Size  Location     Type
+   611 ;;  q               1    wreg     PTR struct .
+   612 ;;		 -> main@adcQueue(70), 
+   613 ;;  data            4    7[COMMON] struct .
+   614 ;; Auto vars:     Size  Location     Type
+   615 ;;  q               1   11[COMMON] PTR struct .
+   616 ;;		 -> main@adcQueue(70), 
+   617 ;; Return value:  Size  Location     Type
+   618 ;;                  1    wreg      void 
+   619 ;; Registers used:
+   620 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   621 ;; Tracked objects:
+   622 ;;		On entry : 0/0
+   623 ;;		On exit  : 0/0
+   624 ;;		Unchanged: 0/0
+   625 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   626 ;;      Params:         4       0       0       0
+   627 ;;      Locals:         1       0       0       0
+   628 ;;      Temps:          0       6       0       0
+   629 ;;      Totals:         5       6       0       0
+   630 ;;Total ram usage:       11 bytes
+   631 ;; Hardware stack levels used: 1
+   632 ;; Hardware stack levels required when called: 1
+   633 ;; This function calls:
+   634 ;;		_isQueueFull
+   635 ;; This function is called by:
+   636 ;;		_main
+   637 ;; This function uses a non-reentrant model
+   638 ;;
+   639                           
+   640     06E4                     _enqueue:	
+   641                           ;psect for function _enqueue
+   642                           
+   643                           
+   644                           ;incstack = 0
+   645                           ; Regs used in _enqueue: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   646                           ;enqueue@q stored from wreg
+   647     06E4  00FB               	movwf	enqueue@q
+   648     06E5                     l726:
+   649                           
+   650                           ;newmain.c: 195:     if (!isQueueFull(q)) {
+   651     06E5  087B               	movf	enqueue@q,w
+   652     06E6  118A  268E  118A   	fcall	_isQueueFull
+   653     06E9  0870               	movf	?_isQueueFull,w
+   654     06EA  0471               	iorwf	?_isQueueFull+1,w
+   655     06EB  1D03               	btfss	3,2
+   656     06EC  2EEE               	goto	u181
+   657     06ED  2EEF               	goto	u180
+   658     06EE                     u181:
+   659     06EE  2F34               	goto	l43
+   660     06EF                     u180:
+   661     06EF                     l728:
+   662                           
+   663                           ;newmain.c: 196:         q->buffer[q->tail] = data;
+   664     06EF  087B               	movf	enqueue@q,w
+   665     06F0  3E42               	addlw	66
+   666     06F1  0084               	movwf	4
+   667     06F2  1383               	bcf	3,7	;select IRP bank0
+   668     06F3  0800               	movf	0,w
+   669     06F4  1283               	bcf	3,5	;RP0=0, select bank0
+   670     06F5  1303               	bcf	3,6	;RP1=0, select bank0
+   671     06F6  00A0               	movwf	??_enqueue
+   672     06F7  3001               	movlw	1
+   673     06F8                     u195:
+   674     06F8  1003               	clrc
+   675     06F9  0DA0               	rlf	??_enqueue,f
+   676     06FA  3EFF               	addlw	-1
+   677     06FB  1D03               	skipz
+   678     06FC  2EF8               	goto	u195
+   679     06FD  1003               	clrc
+   680     06FE  0D20               	rlf	??_enqueue,w
+   681     06FF  077B               	addwf	enqueue@q,w
+   682     0700  00A1               	movwf	??_enqueue+1
+   683     0701  0821               	movf	??_enqueue+1,w
+   684     0702  0084               	movwf	4
+   685     0703  0877               	movf	enqueue@data,w
+   686     0704  0080               	movwf	0
+   687     0705  0A84               	incf	4,f
+   688     0706  0878               	movf	enqueue@data+1,w
+   689     0707  0080               	movwf	0
+   690     0708  0A84               	incf	4,f
+   691     0709  0879               	movf	enqueue@data+2,w
+   692     070A  0080               	movwf	0
+   693     070B  0A84               	incf	4,f
+   694     070C  087A               	movf	enqueue@data+3,w
+   695     070D  0080               	movwf	0
+   696                           
+   697                           ;newmain.c: 197:         q->tail = (q->tail + 1) % 16;
+   698     070E  087B               	movf	enqueue@q,w
+   699     070F  3E42               	addlw	66
+   700     0710  0084               	movwf	4
+   701     0711  0800               	movf	0,w
+   702     0712  00A0               	movwf	??_enqueue
+   703     0713  0A84               	incf	4,f
+   704     0714  0800               	movf	0,w
+   705     0715  00A1               	movwf	??_enqueue+1
+   706     0716  0820               	movf	??_enqueue,w
+   707     0717  3E01               	addlw	1
+   708     0718  00A2               	movwf	??_enqueue+2
+   709     0719  0821               	movf	??_enqueue+1,w
+   710     071A  1803               	skipnc
+   711     071B  3E01               	addlw	1
+   712     071C  3E00               	addlw	0
+   713     071D  00A3               	movwf	??_enqueue+3
+   714     071E  300F               	movlw	15
+   715     071F  0522               	andwf	??_enqueue+2,w
+   716     0720  00A4               	movwf	??_enqueue+4
+   717     0721  3000               	movlw	0
+   718     0722  0523               	andwf	??_enqueue+3,w
+   719     0723  00A5               	movwf	??_enqueue+5
+   720     0724  087B               	movf	enqueue@q,w
+   721     0725  3E42               	addlw	66
+   722     0726  0084               	movwf	4
+   723     0727  0824               	movf	??_enqueue+4,w
+   724     0728  0080               	movwf	0
+   725     0729  0A84               	incf	4,f
+   726     072A  0825               	movf	??_enqueue+5,w
+   727     072B  0080               	movwf	0
+   728                           
+   729                           ;newmain.c: 198:         q->count++;
+   730     072C  087B               	movf	enqueue@q,w
+   731     072D  3E44               	addlw	68
+   732     072E  0084               	movwf	4
+   733     072F  3001               	movlw	1
+   734     0730  0780               	addwf	0,f
+   735     0731  0A84               	incf	4,f
+   736     0732  1803               	skipnc
+   737     0733  0A80               	incf	0,f
+   738     0734                     l43:
+   739     0734  0008               	return
+   740     0735                     __end_of_enqueue:
+   741                           
+   742                           	psect	text3
+   743     068E                     __ptext3:	
+   744 ;; *************** function _isQueueFull *****************
+   745 ;; Defined at:
+   746 ;;		line 186 in file "newmain.c"
+   747 ;; Parameters:    Size  Location     Type
+   748 ;;  q               1    wreg     PTR struct .
+   749 ;;		 -> main@adcQueue(70), 
+   750 ;; Auto vars:     Size  Location     Type
+   751 ;;  q               1    6[COMMON] PTR struct .
+   752 ;;		 -> main@adcQueue(70), 
+   753 ;; Return value:  Size  Location     Type
+   754 ;;                  2    0[COMMON] int 
+   755 ;; Registers used:
+   756 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   757 ;; Tracked objects:
+   758 ;;		On entry : 0/0
+   759 ;;		On exit  : 0/0
+   760 ;;		Unchanged: 0/0
+   761 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   762 ;;      Params:         2       0       0       0
+   763 ;;      Locals:         1       0       0       0
+   764 ;;      Temps:          4       0       0       0
+   765 ;;      Totals:         7       0       0       0
+   766 ;;Total ram usage:        7 bytes
+   767 ;; Hardware stack levels used: 1
+   768 ;; This function calls:
+   769 ;;		Nothing
+   770 ;; This function is called by:
+   771 ;;		_enqueue
+   772 ;;		_main
+   773 ;; This function uses a non-reentrant model
+   774 ;;
+   775                           
+   776     068E                     _isQueueFull:	
+   777                           ;psect for function _isQueueFull
+   778                           
+   779                           
+   780                           ;incstack = 0
+   781                           ; Regs used in _isQueueFull: [wreg-fsr0h+status,2+status,0]
+   782                           ;isQueueFull@q stored from wreg
+   783     068E  00F6               	movwf	isQueueFull@q
+   784     068F                     l714:
+   785                           
+   786                           ;newmain.c: 187:     return q->count == 16;
+   787     068F  0876               	movf	isQueueFull@q,w
+   788     0690  3E44               	addlw	68
+   789     0691  0084               	movwf	4
+   790     0692  1383               	bcf	3,7	;select IRP bank0
+   791     0693  0800               	movf	0,w
+   792     0694  00F2               	movwf	??_isQueueFull
+   793     0695  0A84               	incf	4,f
+   794     0696  0800               	movf	0,w
+   795     0697  00F3               	movwf	??_isQueueFull+1
+   796     0698  3010               	movlw	16
+   797     0699  0672               	xorwf	??_isQueueFull,w
+   798     069A  0473               	iorwf	??_isQueueFull+1,w
+   799     069B  1903               	btfsc	3,2
+   800     069C  2E9E               	goto	u131
+   801     069D  2EA0               	goto	u130
+   802     069E                     u131:
+   803     069E  3001               	movlw	1
+   804     069F  2EA1               	goto	u140
+   805     06A0                     u130:
+   806     06A0  3000               	movlw	0
+   807     06A1                     u140:
+   808     06A1  00F4               	movwf	??_isQueueFull+2
+   809     06A2  01F5               	clrf	??_isQueueFull+3
+   810     06A3  0874               	movf	??_isQueueFull+2,w
+   811     06A4  00F0               	movwf	?_isQueueFull
+   812     06A5  0875               	movf	??_isQueueFull+3,w
+   813     06A6  00F1               	movwf	?_isQueueFull+1
+   814     06A7                     l36:
+   815     06A7  0008               	return
+   816     06A8                     __end_of_isQueueFull:
+   817                           
+   818                           	psect	text4
+   819     078C                     __ptext4:	
+   820 ;; *************** function _dequeue *****************
+   821 ;; Defined at:
+   822 ;;		line 202 in file "newmain.c"
+   823 ;; Parameters:    Size  Location     Type
+   824 ;;  q               1    wreg     PTR struct .
+   825 ;;		 -> main@adcQueue(70), 
+   826 ;; Auto vars:     Size  Location     Type
+   827 ;;  q               1   10[BANK0 ] PTR struct .
+   828 ;;		 -> main@adcQueue(70), 
+   829 ;;  data            4    6[BANK0 ] struct .
+   830 ;; Return value:  Size  Location     Type
+   831 ;;                  4    7[COMMON] struct .
+   832 ;; Registers used:
+   833 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   834 ;; Tracked objects:
+   835 ;;		On entry : 0/0
+   836 ;;		On exit  : 0/0
+   837 ;;		Unchanged: 0/0
+   838 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   839 ;;      Params:         4       0       0       0
+   840 ;;      Locals:         0       5       0       0
+   841 ;;      Temps:          0       6       0       0
+   842 ;;      Totals:         4      11       0       0
+   843 ;;Total ram usage:       15 bytes
+   844 ;; Hardware stack levels used: 1
+   845 ;; Hardware stack levels required when called: 1
+   846 ;; This function calls:
+   847 ;;		_isQueueEmpty
+   848 ;; This function is called by:
+   849 ;;		_main
+   850 ;; This function uses a non-reentrant model
+   851 ;;
+   852                           
+   853     078C                     _dequeue:	
+   854                           ;psect for function _dequeue
+   855                           
+   856                           
+   857                           ;incstack = 0
+   858                           ; Regs used in _dequeue: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   859                           ;dequeue@q stored from wreg
+   860     078C  1283               	bcf	3,5	;RP0=0, select bank0
+   861     078D  1303               	bcf	3,6	;RP1=0, select bank0
+   862     078E  00AA               	movwf	dequeue@q
+   863     078F                     l730:
+   864                           
+   865                           ;newmain.c: 203:     adcData data = {0, 0};
+   866     078F  082E               	movf	dequeue@F1643+3,w
+   867     0790  00A9               	movwf	dequeue@data+3
+   868     0791  082D               	movf	dequeue@F1643+2,w
+   869     0792  00A8               	movwf	dequeue@data+2
+   870     0793  082C               	movf	dequeue@F1643+1,w
+   871     0794  00A7               	movwf	dequeue@data+1
+   872     0795  082B               	movf	dequeue@F1643,w
+   873     0796  00A6               	movwf	dequeue@data
+   874     0797                     l732:
+   875                           
+   876                           ;newmain.c: 204:     if (!isQueueEmpty(q)) {
+   877     0797  082A               	movf	dequeue@q,w
+   878     0798  118A  2675  118A   	fcall	_isQueueEmpty
+   879     079B  0870               	movf	?_isQueueEmpty,w
+   880     079C  0471               	iorwf	?_isQueueEmpty+1,w
+   881     079D  1D03               	btfss	3,2
+   882     079E  2FA0               	goto	u201
+   883     079F  2FA1               	goto	u200
+   884     07A0                     u201:
+   885     07A0  2FEC               	goto	l738
+   886     07A1                     u200:
+   887     07A1                     l734:
+   888                           
+   889                           ;newmain.c: 205:         data = q->buffer[q->head];
+   890     07A1  1283               	bcf	3,5	;RP0=0, select bank0
+   891     07A2  1303               	bcf	3,6	;RP1=0, select bank0
+   892     07A3  082A               	movf	dequeue@q,w
+   893     07A4  3E40               	addlw	64
+   894     07A5  0084               	movwf	4
+   895     07A6  1383               	bcf	3,7	;select IRP bank0
+   896     07A7  0800               	movf	0,w
+   897     07A8  00A0               	movwf	??_dequeue
+   898     07A9  3001               	movlw	1
+   899     07AA                     u215:
+   900     07AA  1003               	clrc
+   901     07AB  0DA0               	rlf	??_dequeue,f
+   902     07AC  3EFF               	addlw	-1
+   903     07AD  1D03               	skipz
+   904     07AE  2FAA               	goto	u215
+   905     07AF  1003               	clrc
+   906     07B0  0D20               	rlf	??_dequeue,w
+   907     07B1  072A               	addwf	dequeue@q,w
+   908     07B2  00A1               	movwf	??_dequeue+1
+   909     07B3  0821               	movf	??_dequeue+1,w
+   910     07B4  0084               	movwf	4
+   911     07B5  0800               	movf	0,w
+   912     07B6  00A6               	movwf	dequeue@data
+   913     07B7  0A84               	incf	4,f
+   914     07B8  0800               	movf	0,w
+   915     07B9  00A7               	movwf	dequeue@data+1
+   916     07BA  0A84               	incf	4,f
+   917     07BB  0800               	movf	0,w
+   918     07BC  00A8               	movwf	dequeue@data+2
+   919     07BD  0A84               	incf	4,f
+   920     07BE  0800               	movf	0,w
+   921     07BF  00A9               	movwf	dequeue@data+3
+   922                           
+   923                           ;newmain.c: 206:         q->head = (q->head + 1) % 16;
+   924     07C0  082A               	movf	dequeue@q,w
+   925     07C1  3E40               	addlw	64
+   926     07C2  0084               	movwf	4
+   927     07C3  0800               	movf	0,w
+   928     07C4  00A0               	movwf	??_dequeue
+   929     07C5  0A84               	incf	4,f
+   930     07C6  0800               	movf	0,w
+   931     07C7  00A1               	movwf	??_dequeue+1
+   932     07C8  0820               	movf	??_dequeue,w
+   933     07C9  3E01               	addlw	1
+   934     07CA  00A2               	movwf	??_dequeue+2
+   935     07CB  0821               	movf	??_dequeue+1,w
+   936     07CC  1803               	skipnc
+   937     07CD  3E01               	addlw	1
+   938     07CE  3E00               	addlw	0
+   939     07CF  00A3               	movwf	??_dequeue+3
+   940     07D0  300F               	movlw	15
+   941     07D1  0522               	andwf	??_dequeue+2,w
+   942     07D2  00A4               	movwf	??_dequeue+4
+   943     07D3  3000               	movlw	0
+   944     07D4  0523               	andwf	??_dequeue+3,w
+   945     07D5  00A5               	movwf	??_dequeue+5
+   946     07D6  082A               	movf	dequeue@q,w
+   947     07D7  3E40               	addlw	64
+   948     07D8  0084               	movwf	4
+   949     07D9  0824               	movf	??_dequeue+4,w
+   950     07DA  0080               	movwf	0
+   951     07DB  0A84               	incf	4,f
+   952     07DC  0825               	movf	??_dequeue+5,w
+   953     07DD  0080               	movwf	0
+   954     07DE                     l736:
+   955                           
+   956                           ;newmain.c: 207:         q->count--;
+   957     07DE  082A               	movf	dequeue@q,w
+   958     07DF  3E44               	addlw	68
+   959     07E0  0084               	movwf	4
+   960     07E1  30FF               	movlw	255
+   961     07E2  0780               	addwf	0,f
+   962     07E3  0F84               	incfsz	4,f
+   963     07E4  0800               	movf	0,w
+   964     07E5  1803               	skipnc
+   965     07E6  0A00               	incf	0,w
+   966     07E7  00FF               	movwf	btemp+1
+   967     07E8  30FF               	movlw	255
+   968     07E9  077F               	addwf	btemp+1,w
+   969     07EA  0080               	movwf	0
+   970     07EB  0384               	decf	4,f
+   971     07EC                     l738:
+   972                           
+   973                           ;newmain.c: 209:     return data;
+   974     07EC  1283               	bcf	3,5	;RP0=0, select bank0
+   975     07ED  1303               	bcf	3,6	;RP1=0, select bank0
+   976     07EE  0829               	movf	dequeue@data+3,w
+   977     07EF  00FA               	movwf	?_dequeue+3
+   978     07F0  0828               	movf	dequeue@data+2,w
+   979     07F1  00F9               	movwf	?_dequeue+2
+   980     07F2  0827               	movf	dequeue@data+1,w
+   981     07F3  00F8               	movwf	?_dequeue+1
+   982     07F4  0826               	movf	dequeue@data,w
+   983     07F5  00F7               	movwf	?_dequeue
+   984     07F6                     l49:
+   985     07F6  0008               	return
+   986     07F7                     __end_of_dequeue:
+   987                           
+   988                           	psect	text5
+   989     0675                     __ptext5:	
+   990 ;; *************** function _isQueueEmpty *****************
+   991 ;; Defined at:
+   992 ;;		line 190 in file "newmain.c"
+   993 ;; Parameters:    Size  Location     Type
+   994 ;;  q               1    wreg     PTR struct .
+   995 ;;		 -> main@adcQueue(70), 
+   996 ;; Auto vars:     Size  Location     Type
+   997 ;;  q               1    6[COMMON] PTR struct .
+   998 ;;		 -> main@adcQueue(70), 
+   999 ;; Return value:  Size  Location     Type
+  1000 ;;                  2    0[COMMON] int 
+  1001 ;; Registers used:
+  1002 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1003 ;; Tracked objects:
+  1004 ;;		On entry : 0/0
+  1005 ;;		On exit  : 0/0
+  1006 ;;		Unchanged: 0/0
+  1007 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1008 ;;      Params:         2       0       0       0
+  1009 ;;      Locals:         1       0       0       0
+  1010 ;;      Temps:          4       0       0       0
+  1011 ;;      Totals:         7       0       0       0
+  1012 ;;Total ram usage:        7 bytes
+  1013 ;; Hardware stack levels used: 1
+  1014 ;; This function calls:
+  1015 ;;		Nothing
+  1016 ;; This function is called by:
+  1017 ;;		_dequeue
+  1018 ;;		_main
+  1019 ;; This function uses a non-reentrant model
+  1020 ;;
+  1021                           
+  1022     0675                     _isQueueEmpty:	
+  1023                           ;psect for function _isQueueEmpty
+  1024                           
+  1025                           
+  1026                           ;incstack = 0
+  1027                           ; Regs used in _isQueueEmpty: [wreg-fsr0h+status,2+status,0]
+  1028                           ;isQueueEmpty@q stored from wreg
+  1029     0675  00F6               	movwf	isQueueEmpty@q
+  1030     0676                     l718:
+  1031                           
+  1032                           ;newmain.c: 191:     return q->count == 0;
+  1033     0676  0876               	movf	isQueueEmpty@q,w
+  1034     0677  3E44               	addlw	68
+  1035     0678  0084               	movwf	4
+  1036     0679  1383               	bcf	3,7	;select IRP bank0
+  1037     067A  0800               	movf	0,w
+  1038     067B  00F2               	movwf	??_isQueueEmpty
+  1039     067C  0A84               	incf	4,f
+  1040     067D  0800               	movf	0,w
+  1041     067E  00F3               	movwf	??_isQueueEmpty+1
+  1042     067F  0872               	movf	??_isQueueEmpty,w
+  1043     0680  0473               	iorwf	??_isQueueEmpty+1,w
+  1044     0681  1903               	btfsc	3,2
+  1045     0682  2E84               	goto	u151
+  1046     0683  2E86               	goto	u150
+  1047     0684                     u151:
+  1048     0684  3001               	movlw	1
+  1049     0685  2E87               	goto	u160
+  1050     0686                     u150:
+  1051     0686  3000               	movlw	0
+  1052     0687                     u160:
+  1053     0687  00F4               	movwf	??_isQueueEmpty+2
+  1054     0688  01F5               	clrf	??_isQueueEmpty+3
+  1055     0689  0874               	movf	??_isQueueEmpty+2,w
+  1056     068A  00F0               	movwf	?_isQueueEmpty
+  1057     068B  0875               	movf	??_isQueueEmpty+3,w
+  1058     068C  00F1               	movwf	?_isQueueEmpty+1
+  1059     068D                     l39:
+  1060     068D  0008               	return
+  1061     068E                     __end_of_isQueueEmpty:
+  1062                           
+  1063                           	psect	text6
+  1064     063B                     __ptext6:	
+  1065 ;; *************** function _SPI_Init *****************
+  1066 ;; Defined at:
+  1067 ;;		line 238 in file "newmain.c"
+  1068 ;; Parameters:    Size  Location     Type
+  1069 ;;		None
+  1070 ;; Auto vars:     Size  Location     Type
+  1071 ;;		None
+  1072 ;; Return value:  Size  Location     Type
+  1073 ;;                  1    wreg      void 
+  1074 ;; Registers used:
+  1075 ;;		wreg
+  1076 ;; Tracked objects:
+  1077 ;;		On entry : 0/0
+  1078 ;;		On exit  : 0/0
+  1079 ;;		Unchanged: 0/0
+  1080 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1081 ;;      Params:         0       0       0       0
+  1082 ;;      Locals:         0       0       0       0
+  1083 ;;      Temps:          0       0       0       0
+  1084 ;;      Totals:         0       0       0       0
+  1085 ;;Total ram usage:        0 bytes
+  1086 ;; Hardware stack levels used: 1
+  1087 ;; This function calls:
+  1088 ;;		Nothing
+  1089 ;; This function is called by:
+  1090 ;;		_main
+  1091 ;; This function uses a non-reentrant model
+  1092 ;;
+  1093                           
+  1094     063B                     _SPI_Init:	
+  1095                           ;psect for function _SPI_Init
+  1096                           
+  1097     063B                     l764:	
+  1098                           ;incstack = 0
+  1099                           ; Regs used in _SPI_Init: [wreg]
+  1100                           
+  1101                           
+  1102                           ;newmain.c: 239:     TRISBbits.TRISB6 = 0;
+  1103     063B  1683               	bsf	3,5	;RP0=1, select bank1
+  1104     063C  1303               	bcf	3,6	;RP1=0, select bank1
+  1105     063D  1306               	bcf	6,6	;volatile
+  1106                           
+  1107                           ;newmain.c: 240:     TRISBbits.TRISB4 = 1;
+  1108     063E  1606               	bsf	6,4	;volatile
+  1109                           
+  1110                           ;newmain.c: 241:     TRISCbits.TRISC7 = 0;
+  1111     063F  1387               	bcf	7,7	;volatile
+  1112                           
+  1113                           ;newmain.c: 243:     TRISCbits.TRISC6 = 0;
+  1114     0640  1307               	bcf	7,6	;volatile
+  1115                           
+  1116                           ;newmain.c: 244:     TRISCbits.TRISC3 = 0;
+  1117     0641  1187               	bcf	7,3	;volatile
+  1118     0642                     l766:
+  1119                           
+  1120                           ;newmain.c: 246:     SSPCON = 0b00100010;
+  1121     0642  3022               	movlw	34
+  1122     0643  1283               	bcf	3,5	;RP0=0, select bank0
+  1123     0644  1303               	bcf	3,6	;RP1=0, select bank0
+  1124     0645  0094               	movwf	20	;volatile
+  1125                           
+  1126                           ;newmain.c: 247:     SSPSTAT = 0b11000000;
+  1127     0646  30C0               	movlw	192
+  1128     0647  1683               	bsf	3,5	;RP0=1, select bank1
+  1129     0648  1303               	bcf	3,6	;RP1=0, select bank1
+  1130     0649  0094               	movwf	20	;volatile
+  1131     064A                     l61:
+  1132     064A  0008               	return
+  1133     064B                     __end_of_SPI_Init:
+  1134                           
+  1135                           	psect	text7
+  1136     064B                     __ptext7:	
+  1137 ;; *************** function _MCP4921_SetOutput *****************
+  1138 ;; Defined at:
+  1139 ;;		line 256 in file "newmain.c"
+  1140 ;; Parameters:    Size  Location     Type
+  1141 ;;  data            4    1[COMMON] struct .
+  1142 ;; Auto vars:     Size  Location     Type
+  1143 ;;  lowByte         1    6[COMMON] unsigned char 
+  1144 ;;  highByte        1    5[COMMON] unsigned char 
+  1145 ;;  configBit       1    0        unsigned char 
+  1146 ;;  zeroByte        1    0        unsigned char 
+  1147 ;; Return value:  Size  Location     Type
+  1148 ;;                  1    wreg      void 
+  1149 ;; Registers used:
+  1150 ;;		wreg, status,2, status,0, pclath, cstack
+  1151 ;; Tracked objects:
+  1152 ;;		On entry : 0/0
+  1153 ;;		On exit  : 0/0
+  1154 ;;		Unchanged: 0/0
+  1155 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1156 ;;      Params:         4       0       0       0
+  1157 ;;      Locals:         2       0       0       0
+  1158 ;;      Temps:          0       0       0       0
+  1159 ;;      Totals:         6       0       0       0
+  1160 ;;Total ram usage:        6 bytes
+  1161 ;; Hardware stack levels used: 1
+  1162 ;; Hardware stack levels required when called: 1
+  1163 ;; This function calls:
+  1164 ;;		_SPI_Write
+  1165 ;; This function is called by:
+  1166 ;;		_main
+  1167 ;; This function uses a non-reentrant model
+  1168 ;;
+  1169                           
+  1170     064B                     _MCP4921_SetOutput:	
+  1171                           ;psect for function _MCP4921_SetOutput
+  1172                           
+  1173     064B                     l768:	
+  1174                           ;incstack = 0
+  1175                           ; Regs used in _MCP4921_SetOutput: [wreg+status,2+status,0+pclath+cstack]
+  1176                           
+  1177     064B                     l770:
+  1178                           
+  1179                           ;newmain.c: 258:     unsigned char highByte = configBit | (data.adreshData & 0x0F);
+  1180     064B  0871               	movf	MCP4921_SetOutput@data,w
+  1181     064C  390F               	andlw	15
+  1182     064D  3850               	iorlw	80
+  1183     064E  00F5               	movwf	MCP4921_SetOutput@highByte
+  1184     064F                     l772:
+  1185                           
+  1186                           ;newmain.c: 259:     unsigned char lowByte = (unsigned char)data.adreslData;
+  1187     064F  0873               	movf	MCP4921_SetOutput@data+2,w
+  1188     0650  00F6               	movwf	MCP4921_SetOutput@lowByte
+  1189     0651                     l774:
+  1190     0651                     l776:
+  1191                           
+  1192                           ;newmain.c: 262:     PORTCbits.RC6 = 0;
+  1193     0651  1283               	bcf	3,5	;RP0=0, select bank0
+  1194     0652  1303               	bcf	3,6	;RP1=0, select bank0
+  1195     0653  1307               	bcf	7,6	;volatile
+  1196     0654                     l778:
+  1197                           
+  1198                           ;newmain.c: 263:     SPI_Write(highByte);
+  1199     0654  0875               	movf	MCP4921_SetOutput@highByte,w
+  1200     0655  118A  262F  118A   	fcall	_SPI_Write
+  1201     0658                     l780:
+  1202                           
+  1203                           ;newmain.c: 264:     SPI_Write(lowByte);
+  1204     0658  0876               	movf	MCP4921_SetOutput@lowByte,w
+  1205     0659  118A  262F  118A   	fcall	_SPI_Write
+  1206     065C                     l782:
+  1207                           
+  1208                           ;newmain.c: 265:     PORTCbits.RC6 = 1;
+  1209     065C  1283               	bcf	3,5	;RP0=0, select bank0
+  1210     065D  1303               	bcf	3,6	;RP1=0, select bank0
+  1211     065E  1707               	bsf	7,6	;volatile
+  1212     065F                     l70:
+  1213     065F  0008               	return
+  1214     0660                     __end_of_MCP4921_SetOutput:
+  1215                           
+  1216                           	psect	text8
+  1217     062F                     __ptext8:	
+  1218 ;; *************** function _SPI_Write *****************
+  1219 ;; Defined at:
+  1220 ;;		line 250 in file "newmain.c"
+  1221 ;; Parameters:    Size  Location     Type
+  1222 ;;  data            1    wreg     unsigned char 
+  1223 ;; Auto vars:     Size  Location     Type
+  1224 ;;  data            1    0[COMMON] unsigned char 
+  1225 ;; Return value:  Size  Location     Type
+  1226 ;;                  1    wreg      void 
+  1227 ;; Registers used:
+  1228 ;;		wreg
+  1229 ;; Tracked objects:
+  1230 ;;		On entry : 0/0
+  1231 ;;		On exit  : 0/0
+  1232 ;;		Unchanged: 0/0
+  1233 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1234 ;;      Params:         0       0       0       0
+  1235 ;;      Locals:         1       0       0       0
+  1236 ;;      Temps:          0       0       0       0
+  1237 ;;      Totals:         1       0       0       0
+  1238 ;;Total ram usage:        1 bytes
+  1239 ;; Hardware stack levels used: 1
+  1240 ;; This function calls:
+  1241 ;;		Nothing
+  1242 ;; This function is called by:
+  1243 ;;		_MCP4921_SetOutput
+  1244 ;; This function uses a non-reentrant model
+  1245 ;;
+  1246                           
+  1247     062F                     _SPI_Write:	
+  1248                           ;psect for function _SPI_Write
+  1249                           
+  1250                           
+  1251                           ;incstack = 0
+  1252                           ; Regs used in _SPI_Write: [wreg]
+  1253                           ;SPI_Write@data stored from wreg
+  1254     062F  00F0               	movwf	SPI_Write@data
+  1255     0630                     l722:
+  1256                           
+  1257                           ;newmain.c: 251:     SSPBUF = data;
+  1258     0630  0870               	movf	SPI_Write@data,w
+  1259     0631  1283               	bcf	3,5	;RP0=0, select bank0
+  1260     0632  1303               	bcf	3,6	;RP1=0, select bank0
+  1261     0633  0093               	movwf	19	;volatile
+  1262     0634                     l64:	
+  1263                           ;newmain.c: 252:     while(!SSPSTATbits.BF);
+  1264                           
+  1265     0634  1683               	bsf	3,5	;RP0=1, select bank1
+  1266     0635  1303               	bcf	3,6	;RP1=0, select bank1
+  1267     0636  1C14               	btfss	20,0	;volatile
+  1268     0637  2E39               	goto	u171
+  1269     0638  2E3A               	goto	u170
+  1270     0639                     u171:
+  1271     0639  2E34               	goto	l64
+  1272     063A                     u170:
+  1273     063A                     l67:
+  1274     063A  0008               	return
+  1275     063B                     __end_of_SPI_Write:
+  1276                           
+  1277                           	psect	text9
+  1278     06C4                     __ptext9:	
+  1279 ;; *************** function _ADC_Read *****************
+  1280 ;; Defined at:
+  1281 ;;		line 228 in file "newmain.c"
+  1282 ;; Parameters:    Size  Location     Type
+  1283 ;;		None
+  1284 ;; Auto vars:     Size  Location     Type
+  1285 ;;  result          4    6[COMMON] struct .
+  1286 ;; Return value:  Size  Location     Type
+  1287 ;;                  4    0[COMMON] struct .
+  1288 ;; Registers used:
+  1289 ;;		wreg
+  1290 ;; Tracked objects:
+  1291 ;;		On entry : 0/0
+  1292 ;;		On exit  : 0/0
+  1293 ;;		Unchanged: 0/0
+  1294 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1295 ;;      Params:         4       0       0       0
+  1296 ;;      Locals:         4       0       0       0
+  1297 ;;      Temps:          2       0       0       0
+  1298 ;;      Totals:        10       0       0       0
+  1299 ;;Total ram usage:       10 bytes
+  1300 ;; Hardware stack levels used: 1
+  1301 ;; This function calls:
+  1302 ;;		Nothing
+  1303 ;; This function is called by:
+  1304 ;;		_main
+  1305 ;; This function uses a non-reentrant model
+  1306 ;;
+  1307                           
+  1308     06C4                     _ADC_Read:	
+  1309                           ;psect for function _ADC_Read
+  1310                           
+  1311     06C4                     l758:	
+  1312                           ;incstack = 0
+  1313                           ; Regs used in _ADC_Read: [wreg]
+  1314                           
+  1315                           
+  1316                           ;newmain.c: 229:     ADCON0bits.GO = 1;
+  1317     06C4  1283               	bcf	3,5	;RP0=0, select bank0
+  1318     06C5  1303               	bcf	3,6	;RP1=0, select bank0
+  1319     06C6  149F               	bsf	31,1	;volatile
+  1320     06C7                     l55:	
+  1321                           ;newmain.c: 230:     while (ADCON0bits.GO_nDONE);
+  1322                           
+  1323     06C7  189F               	btfsc	31,1	;volatile
+  1324     06C8  2ECA               	goto	u221
+  1325     06C9  2ECB               	goto	u220
+  1326     06CA                     u221:
+  1327     06CA  2EC7               	goto	l55
+  1328     06CB                     u220:
+  1329     06CB                     l760:
+  1330                           
+  1331                           ;newmain.c: 231:     adcData result;;newmain.c: 232:     result.adreshData = ADRESH;
+  1332     06CB  081E               	movf	30,w	;volatile
+  1333     06CC  00F4               	movwf	??_ADC_Read
+  1334     06CD  01F5               	clrf	??_ADC_Read+1
+  1335     06CE  0874               	movf	??_ADC_Read,w
+  1336     06CF  00F6               	movwf	ADC_Read@result
+  1337     06D0  0875               	movf	??_ADC_Read+1,w
+  1338     06D1  00F7               	movwf	ADC_Read@result+1
+  1339                           
+  1340                           ;newmain.c: 233:     result.adreslData = ADRESL;
+  1341     06D2  1683               	bsf	3,5	;RP0=1, select bank1
+  1342     06D3  1303               	bcf	3,6	;RP1=0, select bank1
+  1343     06D4  081E               	movf	30,w	;volatile
+  1344     06D5  00F4               	movwf	??_ADC_Read
+  1345     06D6  01F5               	clrf	??_ADC_Read+1
+  1346     06D7  0874               	movf	??_ADC_Read,w
+  1347     06D8  00F8               	movwf	ADC_Read@result+2
+  1348     06D9  0875               	movf	??_ADC_Read+1,w
+  1349     06DA  00F9               	movwf	ADC_Read@result+3
+  1350                           
+  1351                           ;newmain.c: 234:     return result;
+  1352     06DB  0879               	movf	ADC_Read@result+3,w
+  1353     06DC  00F3               	movwf	?_ADC_Read+3
+  1354     06DD  0878               	movf	ADC_Read@result+2,w
+  1355     06DE  00F2               	movwf	?_ADC_Read+2
+  1356     06DF  0877               	movf	ADC_Read@result+1,w
+  1357     06E0  00F1               	movwf	?_ADC_Read+1
+  1358     06E1  0876               	movf	ADC_Read@result,w
+  1359     06E2  00F0               	movwf	?_ADC_Read
+  1360     06E3                     l58:
+  1361     06E3  0008               	return
+  1362     06E4                     __end_of_ADC_Read:
+  1363                           
+  1364                           	psect	text10
+  1365     06A8                     __ptext10:	
+  1366 ;; *************** function _ADC_Init *****************
+  1367 ;; Defined at:
+  1368 ;;		line 213 in file "newmain.c"
+  1369 ;; Parameters:    Size  Location     Type
+  1370 ;;		None
+  1371 ;; Auto vars:     Size  Location     Type
+  1372 ;;		None
+  1373 ;; Return value:  Size  Location     Type
+  1374 ;;                  1    wreg      void 
+  1375 ;; Registers used:
+  1376 ;;		wreg, status,2, status,0
+  1377 ;; Tracked objects:
+  1378 ;;		On entry : 0/0
+  1379 ;;		On exit  : 0/0
+  1380 ;;		Unchanged: 0/0
+  1381 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1382 ;;      Params:         0       0       0       0
+  1383 ;;      Locals:         0       0       0       0
+  1384 ;;      Temps:          0       0       0       0
+  1385 ;;      Totals:         0       0       0       0
+  1386 ;;Total ram usage:        0 bytes
+  1387 ;; Hardware stack levels used: 1
+  1388 ;; This function calls:
+  1389 ;;		Nothing
+  1390 ;; This function is called by:
+  1391 ;;		_main
+  1392 ;; This function uses a non-reentrant model
+  1393 ;;
+  1394                           
+  1395     06A8                     _ADC_Init:	
+  1396                           ;psect for function _ADC_Init
+  1397                           
+  1398     06A8                     l742:	
+  1399                           ;incstack = 0
+  1400                           ; Regs used in _ADC_Init: [wreg+status,2+status,0]
+  1401                           
+  1402                           
+  1403                           ;newmain.c: 214:     ANSEL = 0x00;
+  1404     06A8  1283               	bcf	3,5	;RP0=0, select bank2
+  1405     06A9  1703               	bsf	3,6	;RP1=1, select bank2
+  1406     06AA  019E               	clrf	30	;volatile
+  1407                           
+  1408                           ;newmain.c: 215:     ANSELH = 0x00;
+  1409     06AB  019F               	clrf	31	;volatile
+  1410     06AC                     l744:
+  1411                           
+  1412                           ;newmain.c: 218:     TRISAbits.TRISA2 = 1;
+  1413     06AC  1683               	bsf	3,5	;RP0=1, select bank1
+  1414     06AD  1303               	bcf	3,6	;RP1=0, select bank1
+  1415     06AE  1505               	bsf	5,2	;volatile
+  1416     06AF                     l746:
+  1417                           
+  1418                           ;newmain.c: 219:     ANSELbits.ANS2 = 1;
+  1419     06AF  1283               	bcf	3,5	;RP0=0, select bank2
+  1420     06B0  1703               	bsf	3,6	;RP1=1, select bank2
+  1421     06B1  151E               	bsf	30,2	;volatile
+  1422     06B2                     l748:
+  1423                           
+  1424                           ;newmain.c: 221:     ADCON0bits.CHS = 2;
+  1425     06B2  1283               	bcf	3,5	;RP0=0, select bank0
+  1426     06B3  1303               	bcf	3,6	;RP1=0, select bank0
+  1427     06B4  081F               	movf	31,w	;volatile
+  1428     06B5  39C3               	andlw	-61
+  1429     06B6  3808               	iorlw	8
+  1430     06B7  009F               	movwf	31	;volatile
+  1431     06B8                     l750:
+  1432                           
+  1433                           ;newmain.c: 222:     ADCON1bits.ADCS = 0b001;
+  1434     06B8  1683               	bsf	3,5	;RP0=1, select bank1
+  1435     06B9  1303               	bcf	3,6	;RP1=0, select bank1
+  1436     06BA  081F               	movf	31,w	;volatile
+  1437     06BB  398F               	andlw	-113
+  1438     06BC  3810               	iorlw	16
+  1439     06BD  009F               	movwf	31	;volatile
+  1440     06BE                     l752:
+  1441                           
+  1442                           ;newmain.c: 223:     ADCON0bits.ADFM = 1;
+  1443     06BE  1283               	bcf	3,5	;RP0=0, select bank0
+  1444     06BF  1303               	bcf	3,6	;RP1=0, select bank0
+  1445     06C0  179F               	bsf	31,7	;volatile
+  1446     06C1                     l754:
+  1447                           
+  1448                           ;newmain.c: 224:     ADCON0bits.ADON = 1;
+  1449     06C1  141F               	bsf	31,0	;volatile
+  1450     06C2                     l756:
+  1451                           
+  1452                           ;newmain.c: 226:     ADCON0bits.VCFG = 0;
+  1453     06C2  131F               	bcf	31,6	;volatile
+  1454     06C3                     l52:
+  1455     06C3  0008               	return
+  1456     06C4                     __end_of_ADC_Init:
+  1457     007E                     btemp	set	126	;btemp
+  1458     007E                     wtemp0	set	126
+  1459                           
+  1460                           	psect	config
+  1461                           
+  1462                           ;Config register CONFIG @ 0x2007
+  1463                           ;	Oscillator Selection bits
+  1464                           ;	FOSC = INTRCIO, INTOSCIO oscillator: I/O function on RA4/OSC2/CLKOUT pin, I/O function
+      +                           on RA5/OSC1/CLKIN
+  1465                           ;	Watchdog Timer Enable bit
+  1466                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1467                           ;	Power-up Timer Enable bit
+  1468                           ;	PWRTE = OFF, PWRT disabled
+  1469                           ;	MCLR Pin Function Select bit
+  1470                           ;	MCLRE = ON, MCLR pin function is MCLR
+  1471                           ;	Code Protection bit
+  1472                           ;	CP = OFF, Program memory code protection is disabled
+  1473                           ;	Data Code Protection bit
+  1474                           ;	CPD = OFF, Data memory code protection is disabled
+  1475                           ;	Brown-out Reset Selection bits
+  1476                           ;	BOREN = OFF, BOR disabled
+  1477                           ;	Internal External Switchover bit
+  1478                           ;	IESO = OFF, Internal External Switchover mode is disabled
+  1479                           ;	Fail-Safe Clock Monitor Enabled bit
+  1480                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1481     2007                     	org	8199
+  1482     2007  30F4               	dw	12532
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         4
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     12      12
+    BANK0            80     11      15
+    BANK1            80     78      78
+    BANK2            80      0       0
+
+Pointer List with Targets:
+
+    dequeue@q	PTR struct . size(1) Largest target is 70
+		 -> main@adcQueue(BANK1[70]), 
+
+    enqueue@q	PTR struct . size(1) Largest target is 70
+		 -> main@adcQueue(BANK1[70]), 
+
+    initQueue@q	PTR struct . size(1) Largest target is 70
+		 -> main@adcQueue(BANK1[70]), 
+
+    isQueueEmpty@q	PTR struct . size(1) Largest target is 70
+		 -> main@adcQueue(BANK1[70]), 
+
+    isQueueFull@q	PTR struct . size(1) Largest target is 70
+		 -> main@adcQueue(BANK1[70]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_enqueue
+    _enqueue->_isQueueFull
+    _dequeue->_isQueueEmpty
+    _MCP4921_SetOutput->_SPI_Write
+
+Critical Paths under _main in BANK0
+
+    _main->_dequeue
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                78    78      0    1342
+                                              0 BANK1     78    78      0
+                           _ADC_Init
+                           _ADC_Read
+                  _MCP4921_SetOutput
+                           _SPI_Init
+                            _dequeue
+                            _enqueue
+                          _initQueue
+                       _isQueueEmpty
+                        _isQueueFull
+ ---------------------------------------------------------------------------------
+ (1) _initQueue                                            1     1      0      99
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _enqueue                                             11     7      4     351
+                                              7 COMMON     5     1      4
+                                              0 BANK0      6     6      0
+                        _isQueueFull
+ ---------------------------------------------------------------------------------
+ (1) _isQueueFull                                          7     5      2      88
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ (1) _dequeue                                             15    11      4     277
+                                              7 COMMON     4     0      4
+                                              0 BANK0     11    11      0
+                       _isQueueEmpty
+ ---------------------------------------------------------------------------------
+ (1) _isQueueEmpty                                         7     5      2      88
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ (1) _SPI_Init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _MCP4921_SetOutput                                    8     4      4     213
+                                              1 COMMON     6     2      4
+                          _SPI_Write
+ ---------------------------------------------------------------------------------
+ (2) _SPI_Write                                            1     1      0      22
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _ADC_Read                                            10     6      4      47
+                                              0 COMMON    10     6      4
+ ---------------------------------------------------------------------------------
+ (1) _ADC_Init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ADC_Init
+   _ADC_Read
+   _MCP4921_SetOutput
+     _SPI_Write
+   _SPI_Init
+   _dequeue
+     _isQueueEmpty
+   _enqueue
+     _isQueueFull
+   _initQueue
+   _isQueueEmpty
+   _isQueueFull
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      C       C       1       85.7%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               50      B       F       3       18.8%
+BITBANK1            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK1               50     4E      4E       5       97.5%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK2            50      0       0       6        0.0%
+BANK2               50      0       0       7        0.0%
+ABS                  0      0      69       8        0.0%
+BITBANK0            50      0       0       9        0.0%
+DATA                 0      0      69      10        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Fri Oct 25 15:30:23 2024
+
+              _SSPSTATbits 0094                         l33 0674                         l43 0734  
+                       l52 06C3                         l36 06A7                         l61 064A  
+                       l70 065F                         l55 06C7                         l39 068D  
+                       l64 0634                         l49 07F6                         l58 06E3  
+                       l67 063A                        l800 0770                        l722 0630  
+                      l730 078F                        l714 068F                        l802 077E  
+                      l732 0797                        l724 0661                        l750 06B8  
+                      l742 06A8                        l718 0676                        l734 07A1  
+                      l726 06E5                        l752 06BE                        l744 06AC  
+                      l760 06CB                        l736 07DE                        l728 06EF  
+                      l754 06C1                        l746 06AF                        l770 064B  
+                      l738 07EC                        l756 06C2                        l748 06B2  
+                      l780 0658                        l772 064F                        l764 063B  
+                      l758 06C4                        l782 065C                        l774 0651  
+                      l766 0642                        l790 0742                        l776 0651  
+                      l768 064B                        l792 0743                        l784 0735  
+                      l778 0654                        l794 074D                        l786 073B  
+                      l796 075A                        l788 073F                        l798 0766  
+                      u200 07A1                        u201 07A0                        u130 06A0  
+                      u131 069E                        u220 06CB                        u140 06A1  
+                      u221 06CA                        u150 0686                        u230 074D  
+                      u151 0684                        u215 07AA                        u231 074C  
+                      u160 0687                        u240 0770                        u241 076F  
+                      u170 063A                        u171 0639                        u180 06EF  
+                      u181 06EE                        u195 06F8                        fsr0 0004  
+                      indf 0000               ?_isQueueFull 0070                       _main 0735  
+                     btemp 007E           __end_of_ADC_Init 06C4           __end_of_ADC_Read 06E4  
+             main@adcValue 00A0               main@adcQueue 00A8                       start 0000  
+            ?_isQueueEmpty 0070                      ?_main 0070                      _ANSEL 011E  
+          __end_of_dequeue 07F7            __end_of_enqueue 0735           __end_of_SPI_Init 064B  
+                    status 0003                      wtemp0 007E            __initialization 07F7  
+             __end_of_main 078C             ??_isQueueEmpty 0072                     ??_main 007C  
+              enqueue@data 0077                     _ADRESH 001E                     _ADRESL 009E  
+                   _ANSELH 011F                     _SSPCON 0014                     _SSPBUF 0013  
+                ??_dequeue 0020          __end_of_SPI_Write 063B                  ??_enqueue 0020  
+                ?_ADC_Init 0070                  ?_ADC_Read 0070          _MCP4921_SetOutput 064B  
+             isQueueFull@q 0076         ?_MCP4921_SetOutput 0071    __end_of__initialization 07FD  
+      ??_MCP4921_SetOutput 0075             __pcstackCOMMON 0070                  ?_SPI_Init 0070  
+__end_of_MCP4921_SetOutput 0660                 ??_ADC_Init 0070                 ??_ADC_Read 0074  
+               __pbssBANK0 002B       __end_of_isQueueEmpty 068E                 __pmaintext 0735  
+               ??_SPI_Init 0070                    _SSPSTAT 0094              SPI_Write@data 0070  
+                _ANSELbits 011E                    __ptext1 0660                    __ptext2 06E4  
+                  __ptext3 068E                    __ptext4 078C                    __ptext5 0675  
+                  __ptext6 063B                    __ptext7 064B                    __ptext8 062F  
+                  __ptext9 06C4                    _dequeue 078C          __end_of_initQueue 0675  
+                  _enqueue 06E4       end_of_initialization 07FD              isQueueEmpty@q 0076  
+                _PORTCbits 0007                  _TRISAbits 0085                  _TRISBbits 0086  
+                _TRISCbits 0087                  _SPI_Write 062F               _isQueueEmpty 0675  
+      start_initialization 07F7                 ?_SPI_Write 0070              ??_isQueueFull 0072  
+               initQueue@q 0070             ADC_Read@result 0076                  ___latbits 0001  
+            __pcstackBANK0 0020              __pcstackBANK1 00A0        __end_of_isQueueFull 06A8  
+ MCP4921_SetOutput@lowByte 0076                   ?_dequeue 0077                   ?_enqueue 0077  
+                 _ADC_Init 06A8                   _ADC_Read 06C4                ??_SPI_Write 0070  
+                _initQueue 0660      MCP4921_SetOutput@data 0071                   _SPI_Init 063B  
+               _ADCON0bits 001F                 _ADCON1bits 009F                 ?_initQueue 0070  
+              _isQueueFull 068E                   __ptext10 06A8                   dequeue@q 002A  
+                 main@data 00A4                   enqueue@q 007B                ??_initQueue 0070  
+MCP4921_SetOutput@highByte 0075               dequeue@F1643 002B                dequeue@data 0026  

@@ -1,0 +1,293 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F690 ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"180 C:\workspace\Test690\Test690.X\newmain.c
+[v _initQueue initQueue `(v  1 e 1 0 ]
+"186
+[v _isQueueFull isQueueFull `(i  1 e 2 0 ]
+"190
+[v _isQueueEmpty isQueueEmpty `(i  1 e 2 0 ]
+"194
+[v _enqueue enqueue `(v  1 e 1 0 ]
+"166
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"202
+[v _dequeue dequeue `(S22  1 e 4 0 ]
+"213
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+"166
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"228
+[v _ADC_Read ADC_Read `(S22  1 e 4 0 ]
+"238
+[v _SPI_Init SPI_Init `(v  1 e 1 0 ]
+"250
+[v _SPI_Write SPI_Write `(v  1 e 1 0 ]
+"256
+[v _MCP4921_SetOutput MCP4921_SetOutput `(v  1 e 1 0 ]
+"268
+[v _main main `(v  1 e 1 0 ]
+[s S264 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f690.h
+[u S273 . 1 `S264 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES273  1 e 1 @7 ]
+"665
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"672
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1073
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+[s S70 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 VCFG 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"1110
+[s S76 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S83 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S86 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S89 . 1 `S70 1 . 1 0 `S76 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES89  1 e 1 @31 ]
+[s S32 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+]
+"1260
+[u S39 . 1 `S32 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES39  1 e 1 @133 ]
+[s S136 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1309
+[u S142 . 1 `S136 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES142  1 e 1 @134 ]
+[s S151 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1351
+[u S160 . 1 `S151 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES160  1 e 1 @135 ]
+"1797
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S175 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"1851
+[s S184 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S189 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S195 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S200 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S205 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S210 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S215 . 1 `S175 1 . 1 0 `S184 1 . 1 0 `S189 1 . 1 0 `S195 1 . 1 0 `S200 1 . 1 0 `S205 1 . 1 0 `S210 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES215  1 e 1 @148 ]
+"2594
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+[s S114 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 ADCS 1 0 :3:4 
+]
+"2618
+[s S117 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 ADCS0 1 0 :1:4 
+`uc 1 ADCS1 1 0 :1:5 
+`uc 1 ADCS2 1 0 :1:6 
+]
+[u S122 . 1 `S114 1 . 1 0 `S117 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES122  1 e 1 @159 ]
+"3002
+[v _ANSEL ANSEL `VEuc  1 e 1 @286 ]
+[s S49 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+`uc 1 ANS5 1 0 :1:5 
+`uc 1 ANS6 1 0 :1:6 
+`uc 1 ANS7 1 0 :1:7 
+]
+"3019
+[u S58 . 1 `S49 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES58  1 e 1 @286 ]
+"3064
+[v _ANSELH ANSELH `VEuc  1 e 1 @287 ]
+"268 C:\workspace\Test690\Test690.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"287
+[v main@data data `S22  1 a 4 4 ]
+"281
+[v main@adcValue adcValue `S22  1 a 4 0 ]
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"272
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v main@adcQueue adcQueue `S25  1 a 70 8 ]
+"291
+} 0
+"180
+[v _initQueue initQueue `(v  1 e 1 0 ]
+{
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v initQueue@q q `*.4S25  1 a 1 wreg ]
+[v initQueue@q q `*.4S25  1 a 1 wreg ]
+[v initQueue@q q `*.4S25  1 a 1 0 ]
+"184
+} 0
+"194
+[v _enqueue enqueue `(v  1 e 1 0 ]
+{
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v enqueue@q q `*.4S25  1 a 1 wreg ]
+[v enqueue@q q `*.4S25  1 a 1 wreg ]
+[v enqueue@data data `S22  1 p 4 7 ]
+[v enqueue@q q `*.4S25  1 a 1 11 ]
+"200
+} 0
+"186
+[v _isQueueFull isQueueFull `(i  1 e 2 0 ]
+{
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v isQueueFull@q q `*.4S25  1 a 1 wreg ]
+[v isQueueFull@q q `*.4S25  1 a 1 wreg ]
+[v isQueueFull@q q `*.4S25  1 a 1 6 ]
+"188
+} 0
+"166
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"202
+[v _dequeue dequeue `(S22  1 e 4 0 ]
+{
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v dequeue@q q `*.4S25  1 a 1 wreg ]
+"203
+[v dequeue@data data `S22  1 a 4 6 ]
+"202
+[v dequeue@q q `*.4S25  1 a 1 wreg ]
+[v dequeue@F1643 F1643 `S22  1 s 4 F1643 ]
+[v dequeue@q q `*.4S25  1 a 1 10 ]
+"210
+} 0
+"190
+[v _isQueueEmpty isQueueEmpty `(i  1 e 2 0 ]
+{
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+[s S25 . 70 `[16]S22 1 buffer 64 0 `i 1 head 2 64 `i 1 tail 2 66 `i 1 count 2 68 ]
+[v isQueueEmpty@q q `*.4S25  1 a 1 wreg ]
+[v isQueueEmpty@q q `*.4S25  1 a 1 wreg ]
+[v isQueueEmpty@q q `*.4S25  1 a 1 6 ]
+"192
+} 0
+"238
+[v _SPI_Init SPI_Init `(v  1 e 1 0 ]
+{
+"248
+} 0
+"256
+[v _MCP4921_SetOutput MCP4921_SetOutput `(v  1 e 1 0 ]
+{
+"259
+[v MCP4921_SetOutput@lowByte lowByte `uc  1 a 1 6 ]
+"258
+[v MCP4921_SetOutput@highByte highByte `uc  1 a 1 5 ]
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"256
+[v MCP4921_SetOutput@data data `S22  1 p 4 1 ]
+"266
+} 0
+"250
+[v _SPI_Write SPI_Write `(v  1 e 1 0 ]
+{
+[v SPI_Write@data data `uc  1 a 1 wreg ]
+[v SPI_Write@data data `uc  1 a 1 wreg ]
+[v SPI_Write@data data `uc  1 a 1 0 ]
+"253
+} 0
+"166
+[s S22 . 4 `us 1 adreshData 2 0 `us 1 adreslData 2 2 ]
+"228
+[v _ADC_Read ADC_Read `(S22  1 e 4 0 ]
+{
+"231
+[v ADC_Read@result result `S22  1 a 4 6 ]
+"235
+} 0
+"213
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+{
+"227
+} 0
